@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style/index.css">
+	<title> Home - Lasers Demos </title>
+</head>
+<body>
+	<!-- ********** Header and Navigation Bar ********** -->
+	<header id="headerID">
+		
+			<div class="dropdownInfo">
+				<span><address> K J Weatherill & C O Rennison-Jones, 2017 <br> Durham University Physics Department </address></span>
+			</div>
+			<a href="index.html" title="Back to index page" class="headerTitle"> 
+				<h1 href="index.html"> PHYS4121: Laser Physics Resources </h1> 
+			</a>
+		
+	</header>
+	
+	
+	
+	
+	<!-- ***************************************************** -->
+	
+	<div class="containerDiv">
+		<h2>Home</h2>
+		<div class="descDiv">
+			<h3> Demos </h3>
+			<p> 
+				Python and Javascript based web apps that demonstrate particular concepts in the course.
+				These take the form of interactive plots that update to show the affect of varying 
+				parameters using sliders and other controls.
+			</p>
+			<p>
+				Use the tabs below to browse the available demos and click on the picture of the plot 
+				to go to that demo's webpage.
+			</p>
+			<div class="tab">
+				<button class="tablinks" onclick="openDemo(event, 'beer')" id="defaultOpen"> Beer-Lambert Law </button>
+				<button class="tablinks" onclick="openDemo(event, 'holeBurning')"> Spectral Hole Burning </button>
+				<button class="tablinks" onclick="openDemo(event, 'airy')"> Fabry-Perot Etalon </button>
+				<button class="tablinks" onclick="openDemo(event, 'modelocking')"> Modelocking </button>
+			</div>
+			<div id="beer" class="tabcontent">
+				<div class="demoContainer">
+				<a href="beer.html" title="Click to go to this demo">
+				<img src="assets/beer.png" alt="Modelocking" class="imageLink" style="width:100%">
+				<div class="middle">
+					<div class="middletext"> Beer-Lambert Law </div>
+				</div>
+				</a>
+				</div>
+			</div>
+			<div id="holeBurning" class="tabcontent">
+				<div class="demoContainer">
+				<a href="holeBurning.html" title="Click to go to this demo">
+				<img src="assets/holeBurning.png" alt="Spectral Hole Burning" class="imageLink" style="width:100%">
+				<div class="middle">
+					<div class="middletext"> Spectral Hole Burning </div>
+				</div>
+				</a>
+				</div>
+			</div>
+			<div id="airy" class="tabcontent">
+				<div class="demoContainer">
+				<a href="airy.html" title="Click to go to this demo">
+				<img src="assets/airy.png" alt="Fabry-Perot Etalon" class="imageLink" style="width:100%">
+				<div class="middle">
+					<div class="middletext"> Fabry-Perot Etalon </div>
+				</div>
+				</a>
+				</div>
+			</div>
+			<div id="modelocking" class="tabcontent">
+				<div class="demoContainer">
+				<a href="modelocking.html" title="Click to go to this demo">
+				<img src="assets/modelocking.png" alt="Modelocking" class="imageLink" style="width:100%">
+				<div class="middle">
+					<div class="middletext"> Modelocking </div>
+				</div>
+				</a>
+				</div>
+			</div>
+			<script>
+				function openDemo(evt, demoName) {
+					var i, tabcontent, tablinks;
+					tabcontent = document.getElementsByClassName("tabcontent");
+					for (i=0; i<tabcontent.length; i++) {
+						tabcontent[i].style.display = "none";
+					}
+					tablinks = document.getElementsByClassName("tablinks");
+					for (i=0; i<tablinks.length; i++) {
+						tablinks[i].className = tablinks[i].className.replace(" active", "");
+					}
+					document.getElementById(demoName).style.display = "block";
+					evt.currentTarget.className += " active";
+				}
+				
+				document.getElementById("defaultOpen").click();
+			</script>
+		
+		
+			<!--
+			<a href="beer.html"> Beer-Lambert Law </a>
+			<br>
+		    <a href="holeBurning.html">Spectral Hole Burning</a>
+			<br>
+		    <a href="airy.html"> Fabry-Perot Etalon </a>
+			<br>
+		    <a href="modelocking.html">Modelocking</a> -->
+		</div>
+		
+		
+	</div>
+	
+</body>
+</html>
