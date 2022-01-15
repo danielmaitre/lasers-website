@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style/index.css">
+        <title>Beer Law Demo</title>
+        
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.6.min.css" type="text/css" />
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+                  
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.6.min.js"></script>
+<script type="text/javascript">
+    Bokeh.set_log_level("info");
+</script>
+    </head>
+    <body>
+	<!-- ********** Header and Navigation Bar ********** -->
+		<header id="headerID">
+			<div class="dropdownInfo">
+				<span><address> K J Weatherill & C O Rennison-Jones, 2017 <br> Durham University Physics Department </address></span>
+				<span><u> Problems running this? </u></span>
+				<div class="dropdownInfoContent">
+					<p>
+						It is recommended that you use the latest versions of <strong>Firefox</strong>
+						or <strong>Chrome</strong> to view this page. All interactive code is run on 
+						your browser, so the use of Internet Explorer to view this page is not 
+						recommended.
+					</p>
+					<p class="browserIcons">
+					
+					</p>
+				</div>
+			</div>
+			
+			<a href="index.html" title="Back to index page" class="headerTitle"> 
+				<h1 href="index.html"> PHYS4121: Laser Physics Resources </h1> 
+			</a>	
+			
+			<nav>
+			<ul>
+			  <li><a href="index.html">Home</a></li>
+			  <li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">Demos</a>
+				<div class="dropdown-content">
+				  <a href="beer.html"> Beer-Lambert Law </a>
+				  <a href="holeBurning.html">Spectral Hole Burning</a>
+				  <a href="airy.html"> Fabry-Perot Etalon </a>
+				  <a href="modelocking.html">Modelocking</a>
+				</div>
+			  </li>
+			  <!--
+			  <li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">Lectures</a>
+				<div class="dropdown-content">
+				  <a href="javascript:void(0)"> Blah </a>
+				</div>
+			  </li>
+			  -->
+			</ul>
+		</nav>
+		</header>
+		
+		
+		<!-- ***************************************************** -->
+		<div class="containerDiv">
+		<h2> Beer-Lambert Law </h2>
+		<a onclick="showHide()" class='show-hide'> <u> Show/Hide Description </u> </a>
+		<div class="descDiv" id="description">
+			<p>
+			This demonstration illustrates the use of the Beer Law for a medium in the steady state.
+			Narrowband weak probe radiation is propagated through the medium (i.e. the light
+			doesn't modify the absorption and scattering properties of the medium it propagates through). 
+			  
+			The intensity after a propagation distance $z$ through a medium with optical cross section
+			$\sigma(\omega)$ is $I = I_0 \mathrm{exp}
+			(\sigma(\omega) N^* z $) ($\sigma$ is taken to be constant
+			at $ 4.0 \times 10^{-17}$ m$^2$ in this code), where $N^* = N_2 - \left(\frac{g_2}{g_1}\right)N_1 $
+			is the population (inversion) density. $N_1$ and $N_2$ are the state occupancies per unit volume of
+			the two levels of the laser transition, and $g_1$ and $g_2$ are the degeneracies of those levels
+			(level 2 is higher in energy than level 1). You can vary these parameters to see how the intensity
+			of the radiation in the medium is affected with distance as it propagates.
+			When $N^*$ is positive we have a population inversion and the intensity in the cavity grows
+			exponentially. Otherwise the intensity will decay.
+			<br>
+			The plot below is of the normalised transimitted intensity $I_T/I_0$ against propagation
+			distance $z$.
+			</p>
+			
+		</div>
+		
+		<div class="myBokehDiv">
+        <div class="bk-root">
+            <div class="bk-plotdiv" id="afe6da4e-cace-4849-83dd-f4df9ca1c633"></div>
+        </div>
+		</div>
+		
+		<!--
+		<footer>
+		<hr>
+		
+		<footer>
+		-->
+		
+		</div>
+		
+		<script>
+			function showHide() {
+				var x = document.getElementById('description');
+				if (x.style.display === 'none') {
+					x.style.display = 'block';
+				} else {
+					x.style.display = 'none';
+				}
+			}
+		</script>
+        
+        <script type="text/javascript">
+            (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              var docs_json = {"caa20389-f996-4f89-90e9-f8ea8523f618":{"roots":{"references":[{"attributes":{"axis_label":"Propagation distance (m)","formatter":{"id":"6a578823-04f2-49b9-8e13-1145cc60e5b0","type":"BasicTickFormatter"},"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"},"ticker":{"id":"b032e70f-be55-4f84-8381-42af2e9ff37e","type":"BasicTicker"}},"id":"1fd6d100-556a-46a5-adf9-ef12348bc4ac","type":"LinearAxis"},{"attributes":{},"id":"ac44baf1-c3fd-4089-b7d0-ff8fa4cbb8bc","type":"LinearScale"},{"attributes":{"args":{"N1":{"id":"c95791a9-8b77-465e-a028-0bbeba1db6a1","type":"Slider"},"N2":{"id":"a1a83e70-2a38-483a-9e96-3d3cc1c5e8aa","type":"Slider"},"g1":{"id":"a0aed1e3-acce-449b-92a7-5480b2c9f042","type":"Slider"},"g2":{"id":"ef9d8334-5a84-4dda-afb8-ee9c2495c904","type":"Slider"},"srce1":{"id":"b3bfafa7-0ca0-47db-9817-941234e55b3c","type":"ColumnDataSource"},"srce2":{"id":"1d325c26-db29-4a40-9cb0-13f351e696d5","type":"ColumnDataSource"},"srce3":{"id":"1cc251f7-c261-4623-a512-521a1edb411e","type":"ColumnDataSource"}},"code":"\n    var data1 = srce1.data;\n    sigma = data1['sigma'][0];\n    var popScale = data1['scale'][0];\n\n    var data2 = srce2.data;\n    zs = data2['zs'];\n    Is = data2['Is'];\n    gran = zs.length;\n\n    var data3 = srce3.data;\n    flatI = data3['y'];\n\n    var N_1 = N1.value*popScale;\n    var N_2 = N2.value*popScale;\n    I_0 = 1.0;//var I_0 = I0.value;\n\n    flatI[0] = I_0; flatI[1] = I_0;\n\n    var NStar = N_2 - (g2.value/g1.value)*N_1;\n    for (var i = 0; i < gran; i++) {\n        Is[i] = I_0 * Math.exp(sigma * NStar * zs[i]);\n    }\n    \n    srce2.change.emit();\n    srce3.change.emit();\n    \n"},"id":"3956fd28-7f07-4c4a-a015-1764090e838a","type":"CustomJS"},{"attributes":{"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}},"id":"bdc9affd-5182-46ae-af6a-46e5279ae55a","type":"WheelZoomTool"},{"attributes":{"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}},"id":"f684528c-754c-49ff-bc19-04b045fc444f","type":"ResetTool"},{"attributes":{"plot":null,"text":"Intensities in gain medium"},"id":"ab9a849b-3d5e-43e0-ae65-15f5ac536c28","type":"Title"},{"attributes":{"callback":null,"end":3},"id":"b4dc4488-e1b2-42a8-98be-da0acce599ea","type":"Range1d"},{"attributes":{"line_color":{"value":"#1f77b4"},"line_width":{"value":3.0},"x":{"field":"zs"},"y":{"field":"Is"}},"id":"348ed130-f325-436f-881d-8aaf2ff8680d","type":"Line"},{"attributes":{"callback":null,"column_names":["y","x"],"data":{"x":[0.0,1.0],"y":[1.0,1.0]}},"id":"1cc251f7-c261-4623-a512-521a1edb411e","type":"ColumnDataSource"},{"attributes":{"overlay":{"id":"11951c70-faec-49a5-8433-f42a36354585","type":"BoxAnnotation"},"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}},"id":"d01ea6e6-6e8f-4ed2-be65-366d34ef1959","type":"BoxZoomTool"},{"attributes":{"children":[{"id":"11d06576-88f9-4a83-aa65-c879d82bb37e","type":"Row"},{"id":"b598cdf1-9d97-4ea0-8955-cc92213c22ec","type":"Row"}],"sizing_mode":"stretch_both"},"id":"aba4e39f-3e05-47f5-bafb-f35a312120fb","type":"Column"},{"attributes":{},"id":"38a08eb1-fc9c-4ffb-ae46-d09114f541ee","type":"BasicTickFormatter"},{"attributes":{},"id":"6a578823-04f2-49b9-8e13-1145cc60e5b0","type":"BasicTickFormatter"},{"attributes":{"callback":{"id":"3956fd28-7f07-4c4a-a015-1764090e838a","type":"CustomJS"},"end":10.0,"step":0.01,"title":"$N_1$ (population density of level 1, in units of 1e16 m$^{-3}$)","value":1.0},"id":"c95791a9-8b77-465e-a028-0bbeba1db6a1","type":"Slider"},{"attributes":{"callback":null,"column_names":["sigma","scale"],"data":{"scale":[1e+16],"sigma":[4e-17]}},"id":"b3bfafa7-0ca0-47db-9817-941234e55b3c","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1d325c26-db29-4a40-9cb0-13f351e696d5","type":"ColumnDataSource"},"glyph":{"id":"348ed130-f325-436f-881d-8aaf2ff8680d","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"169fc2e1-00e1-46a0-b9fd-0aff4639b82d","type":"Line"},"selection_glyph":null},"id":"f8ca8e3e-2136-43a4-9d2c-adb372347b48","type":"GlyphRenderer"},{"attributes":{"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}},"id":"8d56d265-6d7e-4cee-985d-c64b562b5844","type":"PanTool"},{"attributes":{"line_alpha":{"value":0.8},"line_dash":[6],"x":{"field":"x"},"y":{"field":"y"}},"id":"a922b563-fb70-458f-8852-01ce6c539cdd","type":"Line"},{"attributes":{"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}},"id":"f72dd2ca-8844-4ed7-8f48-de4da8e6acc9","type":"SaveTool"},{"attributes":{"callback":{"id":"3956fd28-7f07-4c4a-a015-1764090e838a","type":"CustomJS"},"end":10.0,"step":0.01,"title":"$N_2$ (population density of level 2, in units of 1e16 m$^{-3}$)","value":10.0},"id":"a1a83e70-2a38-483a-9e96-3d3cc1c5e8aa","type":"Slider"},{"attributes":{},"id":"469f6c6d-4504-42d0-8797-342ed1ef3fe6","type":"ToolEvents"},{"attributes":{"axis_label":"Transmitted Intensity in units of initial intensity, (I_T)/(I_0)","formatter":{"id":"38a08eb1-fc9c-4ffb-ae46-d09114f541ee","type":"BasicTickFormatter"},"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"},"ticker":{"id":"54ff5d60-6ee5-4221-a04c-df318ad2d069","type":"BasicTicker"}},"id":"8ad72a8d-02ac-4276-9534-be52d56656c0","type":"LinearAxis"},{"attributes":{"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"},"ticker":{"id":"b032e70f-be55-4f84-8381-42af2e9ff37e","type":"BasicTicker"}},"id":"4e4a1863-9a76-4394-9424-17625fbf58e4","type":"Grid"},{"attributes":{"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":3.0},"x":{"field":"zs"},"y":{"field":"Is"}},"id":"169fc2e1-00e1-46a0-b9fd-0aff4639b82d","type":"Line"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_scroll":"auto","active_tap":"auto","tools":[{"id":"8d56d265-6d7e-4cee-985d-c64b562b5844","type":"PanTool"},{"id":"bdc9affd-5182-46ae-af6a-46e5279ae55a","type":"WheelZoomTool"},{"id":"d01ea6e6-6e8f-4ed2-be65-366d34ef1959","type":"BoxZoomTool"},{"id":"f72dd2ca-8844-4ed7-8f48-de4da8e6acc9","type":"SaveTool"},{"id":"f684528c-754c-49ff-bc19-04b045fc444f","type":"ResetTool"},{"id":"a014ac93-88f7-4bee-8504-32c6c45f7692","type":"HelpTool"}]},"id":"3c011250-f87b-4346-b689-c13995fde9a6","type":"Toolbar"},{"attributes":{"children":[{"id":"5c164322-c06d-4127-88a5-e79e19201ab7","type":"WidgetBox"}],"sizing_mode":"stretch_both"},"id":"b598cdf1-9d97-4ea0-8955-cc92213c22ec","type":"Row"},{"attributes":{"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_dash":[6],"x":{"field":"x"},"y":{"field":"y"}},"id":"4d931ff3-cb9a-468c-ab63-228c43722a94","type":"Line"},{"attributes":{},"id":"0302011d-5d2e-4064-bd2e-f21bba2c7600","type":"LinearScale"},{"attributes":{"data_source":{"id":"1cc251f7-c261-4623-a512-521a1edb411e","type":"ColumnDataSource"},"glyph":{"id":"a922b563-fb70-458f-8852-01ce6c539cdd","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"4d931ff3-cb9a-468c-ab63-228c43722a94","type":"Line"},"selection_glyph":null},"id":"a0a2a382-b57e-456f-9b07-872dc1917257","type":"GlyphRenderer"},{"attributes":{},"id":"54ff5d60-6ee5-4221-a04c-df318ad2d069","type":"BasicTicker"},{"attributes":{"below":[{"id":"1fd6d100-556a-46a5-adf9-ef12348bc4ac","type":"LinearAxis"}],"left":[{"id":"8ad72a8d-02ac-4276-9534-be52d56656c0","type":"LinearAxis"}],"plot_height":400,"plot_width":400,"renderers":[{"id":"1fd6d100-556a-46a5-adf9-ef12348bc4ac","type":"LinearAxis"},{"id":"4e4a1863-9a76-4394-9424-17625fbf58e4","type":"Grid"},{"id":"8ad72a8d-02ac-4276-9534-be52d56656c0","type":"LinearAxis"},{"id":"73412a40-3013-45a5-a2b4-05433c4ae3c5","type":"Grid"},{"id":"11951c70-faec-49a5-8433-f42a36354585","type":"BoxAnnotation"},{"id":"f8ca8e3e-2136-43a4-9d2c-adb372347b48","type":"GlyphRenderer"},{"id":"a0a2a382-b57e-456f-9b07-872dc1917257","type":"GlyphRenderer"}],"sizing_mode":"stretch_both","title":{"id":"ab9a849b-3d5e-43e0-ae65-15f5ac536c28","type":"Title"},"tool_events":{"id":"469f6c6d-4504-42d0-8797-342ed1ef3fe6","type":"ToolEvents"},"toolbar":{"id":"3c011250-f87b-4346-b689-c13995fde9a6","type":"Toolbar"},"x_range":{"id":"b89cd976-c919-4f75-bf05-00faa9d2e03c","type":"DataRange1d"},"x_scale":{"id":"0302011d-5d2e-4064-bd2e-f21bba2c7600","type":"LinearScale"},"y_range":{"id":"b4dc4488-e1b2-42a8-98be-da0acce599ea","type":"Range1d"},"y_scale":{"id":"ac44baf1-c3fd-4089-b7d0-ff8fa4cbb8bc","type":"LinearScale"}},"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"},{"attributes":{"callback":{"id":"3956fd28-7f07-4c4a-a015-1764090e838a","type":"CustomJS"},"end":10,"start":1,"step":1,"title":"$g_1$ (degeneracy of level 1)","value":1},"id":"a0aed1e3-acce-449b-92a7-5480b2c9f042","type":"Slider"},{"attributes":{},"id":"b032e70f-be55-4f84-8381-42af2e9ff37e","type":"BasicTicker"},{"attributes":{"callback":{"id":"3956fd28-7f07-4c4a-a015-1764090e838a","type":"CustomJS"},"end":10,"start":1,"step":1,"title":"$g_2$ (degeneracy of level 2)","value":1},"id":"ef9d8334-5a84-4dda-afb8-ee9c2495c904","type":"Slider"},{"attributes":{"children":[{"id":"c95791a9-8b77-465e-a028-0bbeba1db6a1","type":"Slider"},{"id":"a1a83e70-2a38-483a-9e96-3d3cc1c5e8aa","type":"Slider"},{"id":"a0aed1e3-acce-449b-92a7-5480b2c9f042","type":"Slider"},{"id":"ef9d8334-5a84-4dda-afb8-ee9c2495c904","type":"Slider"}],"sizing_mode":"stretch_both"},"id":"5c164322-c06d-4127-88a5-e79e19201ab7","type":"WidgetBox"},{"attributes":{"callback":null},"id":"b89cd976-c919-4f75-bf05-00faa9d2e03c","type":"DataRange1d"},{"attributes":{"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}},"id":"a014ac93-88f7-4bee-8504-32c6c45f7692","type":"HelpTool"},{"attributes":{"callback":null,"column_names":["Is","zs"],"data":{"Is":{"__ndarray__":"AAAAAAAA8D+/qD7Kr5fwP0USEqL9NPE/Zh7SyB7Y8T8veLh4SoHyP94Rk/e5MPM/ueQnqqjm8z9hg1AoVKP0PzVN1FH8ZvU/IlIIZOMx9j/5ODwQTgT3P+C/+5KD3vc/f7YszM3A+D8AnBFYeav5P5lYOanVnvo/ZtpkIzWb+z/GsGs37aD8P6UXKYBWsP0/sz174MzJ/j9Q7V6ir+3/PyIQmcswjgBAJjWUnCQrAUDpRv5m6M0BQOJ8dUWzdgJAX68AXb4lA0CW/mfwRNsDQOviRHSElwRARHHQo7xaBUCP3naWLyUGQImQN9Yh9wZA9U7ZdtrQB0BPcPoto7IIQI0nBWzInAlApmUQdpmPCkC+EbaAaIsLQNut58uKkAxAMdTKv1ifDUB2UqcKLrgOQA0F8b9p2w9AKvo7PLeEEEDYzOQ5USERQJtMZ923wxFAJVTYISJsEkAoZIoLyRoTQOw3W7vnzxNANFq4gruLFEBBgWH4g04VQDa57w2DGBZAmqYoJv3pFkD8byUsOcMXQA4lVauApBhAW8Ri6B+OGUBFTQf7ZYAaQFmc0OikextAeyLmwDGAHECu3dS4ZI4dQE9TbEqZph5AwKe2Ui7JH0DxJwsZQ3sgQLgdynaDFyFAjd+0KI25IUDb92gKl2EiQEFHl//ZDyNAKo1GB5HEI0C6h8xP+X8kQHBuhEtSQiVAaspJxt0LJkD88b7739wmQFCyZq6ftSdA1viYP2aWKEAdmVrIf38pQLqXIDM7cSpAj7OHVuprK0CQOAkR4m8sQHZ9tmV6fS1At8YEmg6VLkDbpLNU/bYvQEQi7F7UcTBAs0QMULsNMUDkmZBFaK8xQBZesfsRVzJAvX6QNfEEM0BIHXHQQLkzQMdApdc9dDRA43U4mSc2NUAUXF67P/81QKJhrFLKzzZA0zQm+Q2oN0CUtyTmU4g4QIaNHwfocDlAY6hhGRliOkDkhrHEOFw7QEIs9rabXzxASiziwJlsPUDBgK7zjYM+QJ4477/WpD9AnzjGCmtoQEBBNnXC+ANBQMH+pTBJpUFAB3g98pJMQkA=","dtype":"float64","shape":[100]},"zs":{"__ndarray__":"AAAAAAAAAABbv1Kg1q+EP1u/UqDWr5Q/CB988MEHnz9bv1Kg1q+kPzJvZ0jM26k/CB988MEHrz9wZ0jM2xmyP1u/UqDWr7Q/RhdddNFFtz8yb2dIzNu5Px3HcRzHcbw/CB988MEHvz96O0Ni3s7AP3BnSMzbGcI/ZZNNNtlkwz9bv1Kg1q/EP1HrVwrU+sU/RhdddNFFxz88Q2LezpDIPzJvZ0jM28k/J5tssskmyz8dx3Ecx3HMPxPzdobEvM0/CB988MEHzz9/pUCtXynQP3o7Q2LeztA/ddFFF1100T9wZ0jM2xnSP2r9SoFav9I/ZZNNNtlk0z9gKVDrVwrUP1u/UqDWr9Q/VlVVVVVV1T9R61cK1PrVP0yBWr9SoNY/RhdddNFF1z9BrV8pUOvXPzxDYt7OkNg/N9lkk0022T8yb2dIzNvZPy0Fav1Kgdo/J5tssskm2z8iMW9nSMzbPx3HcRzHcdw/GF100UUX3T8T83aGxLzdPw6JeTtDYt4/CB988MEH3z8DtX6lQK3fP3+lQK1fKeA/ffDBBx984D96O0Ni3s7gP3eGxLydIeE/ddFFF1104T9yHMdxHMfhP3BnSMzbGeI/bbLJJpts4j9q/UqBWr/iP2hIzNsZEuM/ZZNNNtlk4z9j3s6QmLfjP2ApUOtXCuQ/XnTRRRdd5D9bv1Kg1q/kP1gK1PqVAuU/VlVVVVVV5T9ToNavFKjlP1HrVwrU+uU/TjbZZJNN5j9MgVq/UqDmP0nM2xkS8+Y/RhdddNFF5z9EYt7OkJjnP0GtXylQ6+c/P/jggw8+6D88Q2LezpDoPzmO4ziO4+g/N9lkk0026T80JObtDInpPzJvZ0jM2+k/L7rooosu6j8tBWr9SoHqPypQ61cK1Oo/J5tssskm6z8l5u0MiXnrPyIxb2dIzOs/IHzwwQcf7D8dx3Ecx3HsPxsS83aGxOw/GF100UUX7T8VqPUrBWrtPxPzdobEvO0/ED744IMP7j8OiXk7Q2LuPwvU+pUCte4/CB988MEH7z8Gav1KgVrvPwO1fqVAre8/AAAAAAAA8D8=","dtype":"float64","shape":[100]}}},"id":"1d325c26-db29-4a40-9cb0-13f351e696d5","type":"ColumnDataSource"},{"attributes":{"dimension":1,"plot":{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"},"ticker":{"id":"54ff5d60-6ee5-4221-a04c-df318ad2d069","type":"BasicTicker"}},"id":"73412a40-3013-45a5-a2b4-05433c4ae3c5","type":"Grid"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"plot":null,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"11951c70-faec-49a5-8433-f42a36354585","type":"BoxAnnotation"},{"attributes":{"children":[{"id":"cd271df0-b1c8-4498-9905-2bc91d87224a","subtype":"Figure","type":"Plot"}],"sizing_mode":"stretch_both"},"id":"11d06576-88f9-4a83-aa65-c879d82bb37e","type":"Row"}],"root_ids":["aba4e39f-3e05-47f5-bafb-f35a312120fb"]},"title":"Bokeh Application","version":"0.12.6"}};
+              var render_items = [{"docid":"caa20389-f996-4f89-90e9-f8ea8523f618","elementid":"afe6da4e-cace-4849-83dd-f4df9ca1c633","modelid":"aba4e39f-3e05-47f5-bafb-f35a312120fb"}];
+              
+              Bokeh.embed.embed_items(docs_json, render_items);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+        
+        </script>
+    </body>
+</html>
